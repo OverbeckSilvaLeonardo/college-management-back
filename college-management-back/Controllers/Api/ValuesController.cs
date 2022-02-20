@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Results;
 
-namespace college_management_back.Controllers
+namespace college_management_back.Api.Controllers
 {
     public class ValuesController : ApiController
     {

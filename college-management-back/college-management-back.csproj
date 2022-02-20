@@ -162,15 +162,18 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\Api\CoursesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\GradesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\Api\ValuesController.cs" />
     <Compile Include="DAL\UniversityContext.cs" />
     <Compile Include="DAL\UniversityInitializer.cs" />
+    <Compile Include="Domain\Api\GetCoursesApiResultFormatter.cs" />
+    <Compile Include="Domain\Api\SubjectApiDTO.cs" />
     <Compile Include="Domain\Person\Birthday.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
-using college_management_back.Models.Interface;
+﻿using System.Collections.Generic;
 
 namespace college_management_back.Models
 {
