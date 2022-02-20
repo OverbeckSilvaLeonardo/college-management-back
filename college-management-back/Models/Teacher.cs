@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,6 @@ namespace college_management_back.Models
         {
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int TeacherID { get; set; }
         public decimal Salary { get; set; }
     }

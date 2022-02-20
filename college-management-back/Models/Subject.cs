@@ -13,7 +13,6 @@ namespace college_management_back.Models
         {
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int SubjectID { get; set; }
         public int CourseID { get; set; }
         public int TeacherID { get; set; }

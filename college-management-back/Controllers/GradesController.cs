@@ -40,7 +40,7 @@ namespace college_management_back.Controllers
         // GET: Grades/Create
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "RegistrationNumber");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Name");
             ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "Description");
             return View();
         }
@@ -59,7 +59,7 @@ namespace college_management_back.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "RegistrationNumber", grade.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Name", grade.StudentID);
             ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "Description", grade.SubjectID);
             return View(grade);
         }
@@ -76,7 +76,7 @@ namespace college_management_back.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "RegistrationNumber", grade.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Name", grade.StudentID);
             ViewBag.SubjectID = new SelectList(db.Subjects, "SubjectID", "Description", grade.SubjectID);
             return View(grade);
         }
