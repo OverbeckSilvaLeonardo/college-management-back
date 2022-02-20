@@ -14,6 +14,7 @@ namespace college_management_back.Domain.Api.GetCourses.Object
 
         public int CourseID { get; set; }
         public string Description { get; set; }
+        public int StudentsCount { get; set; }
         public StudentsList StudentsList { get; set; }
     }
 }

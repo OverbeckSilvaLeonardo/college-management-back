@@ -13,28 +13,13 @@ namespace college_management_back.Domain.Api.GetCourses.Object
 
             courses.ForEach(course =>
             {
-                var extractedStudents = ExtractStudentsAndAverageGradesFromCourse(course);
-                var item = new CourseItem { CourseID = course.CourseID, Description = course.Description, StudentsList = extractedStudents };
+                var extractedStudents = StudentsList.FromCourse(course);
+                var item = new CourseItem { CourseID = course.CourseID, Description = course.Description, StudentsCount = extractedStudents.Count(), StudentsList = extractedStudents };
  
                 result.Add(course.CourseID, item);
             });
 
             return result;
-        }
-
-        private static StudentsList ExtractStudentsAndAverageGradesFromCourse(Course course)
-        {
-            StudentsList studentsList = new StudentsList();
-            course.Subjects.ToList().ForEach(sub =>
-            {
-                foreach (var stu in sub.Students.ToList())
-                {
-                    var item = new StudentItem { Name = stu.Name, AvgGrade = stu.Grades.Average(g => g.Value) };
-                    studentsList.Add(stu.StudentID, item);
-                }
-            });
-
-            return studentsList;
         }
     }
 }
