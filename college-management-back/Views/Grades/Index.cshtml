@@ -1,0 +1,45 @@
+﻿@model IEnumerable<college_management_back.Models.Grade>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.RegistrationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.RegistrationNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GradeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GradeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GradeID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -16,5 +16,7 @@ namespace college_management_back.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CourseID { get; set; }
         public string Description { get; set; }
+
+        public virtual ICollection<Subject> Subjects{ get; set; }
     }
 }
