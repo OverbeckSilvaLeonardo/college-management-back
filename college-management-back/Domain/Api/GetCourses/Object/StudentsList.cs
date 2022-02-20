@@ -5,16 +5,16 @@ using System.Web;
 
 namespace college_management_back.Domain.Api.GetCourses.Object
 {
-    public class FormattedStudentsList
+    public class StudentsList
     {
-        public Dictionary<int, FormattedStudentItem> Students { get; set; }
+        public Dictionary<int, StudentItem> Students { get; set; }
 
-        public FormattedStudentsList()
+        public StudentsList()
         {
-            Students = new Dictionary<int, FormattedStudentItem>();
+            Students = new Dictionary<int, StudentItem>();
         }
 
-        public void Add(int identifier, FormattedStudentItem student)
+        public void Add(int identifier, StudentItem student)
         {
             if (Students.ContainsKey(identifier))
             {

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace college_management_back.Domain.Api.GetCourses.Object
 {
-    public class FormattedStudentItem
+    public class StudentItem
     {
         public string Name { get; set; }
         public decimal AvgGrade { get; set; }

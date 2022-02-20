@@ -21,7 +21,7 @@ namespace college_management_back.Controllers.Api
         private UniversityContext db = new UniversityContext();
 
         // GET: api/Courses
-        public JsonResult<FormattedCoursesList> GetCourses()
+        public JsonResult<CoursesList> GetCourses()
         {
             List<Course> courses = db.Courses.ToList();
 

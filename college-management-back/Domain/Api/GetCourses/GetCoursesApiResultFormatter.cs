@@ -7,14 +7,14 @@ namespace college_management_back.Domain.Api.GetCourses.Object
 {
     public class GetCoursesApiResultFormatter
     {
-        public static FormattedCoursesList FromCourses(List<Course> courses)
+        public static CoursesList FromCourses(List<Course> courses)
         {
-            FormattedCoursesList result = new FormattedCoursesList();
+            CoursesList result = new CoursesList();
 
             courses.ForEach(course =>
             {
                 var extractedStudents = ExtractStudentsAndAverageGradesFromCourse(course);
-                var item = new FormattedCourseItem { CourseID = course.CourseID, Description = course.Description, StudentsList = extractedStudents };
+                var item = new CourseItem { CourseID = course.CourseID, Description = course.Description, StudentsList = extractedStudents };
  
                 result.Add(course.CourseID, item);
             });
@@ -22,14 +22,14 @@ namespace college_management_back.Domain.Api.GetCourses.Object
             return result;
         }
 
-        private static FormattedStudentsList ExtractStudentsAndAverageGradesFromCourse(Course course)
+        private static StudentsList ExtractStudentsAndAverageGradesFromCourse(Course course)
         {
-            FormattedStudentsList studentsList = new FormattedStudentsList();
+            StudentsList studentsList = new StudentsList();
             course.Subjects.ToList().ForEach(sub =>
             {
                 foreach (var stu in sub.Students.ToList())
                 {
-                    var item = new FormattedStudentItem { Name = stu.Name, AvgGrade = stu.Grades.Average(g => g.Value) };
+                    var item = new StudentItem { Name = stu.Name, AvgGrade = stu.Grades.Average(g => g.Value) };
                     studentsList.Add(stu.StudentID, item);
                 }
             });
