@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace college_management_back.Domain.Api.GetCourses.Object
+namespace college_management_back.Domain.Api.GetCourses
 {
     public class StudentsList
     {
@@ -15,14 +15,15 @@ namespace college_management_back.Domain.Api.GetCourses.Object
             Students = new Dictionary<int, StudentItem>();
         }
 
-        public static StudentsList FromCourse(Course course)
+        public static StudentsList FromSubjectsList(List<Subject> subjects)
         {
             var studentsList = new StudentsList();
-            course.Subjects.ToList().ForEach(sub =>
+
+            subjects.ForEach(sub =>
             {
                 foreach (var stu in sub.Students.ToList())
                 {
-                    var item = new StudentItem { Name = stu.Name, AvgGrade = stu.Grades.Average(g => g.Value) };
+                    var item = new StudentItem { Name = stu.Name, AverageGrade = stu.Grades.Average(g => g.Value) };
                     studentsList.Add(stu.StudentID, item);
                 }
             });
