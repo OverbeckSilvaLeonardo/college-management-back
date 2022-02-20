@@ -4,15 +4,33 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace college_management_back.Controllers
 {
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public JsonResult<List<object>> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<object> resultado = new List<object>();
+            resultado.Add(new
+            {
+                Nome = "Linha de Código",
+                URL = "www.linhadecodigo.com.br"
+            });
+            resultado.Add(new
+            {
+                Nome = "DevMedia",
+                URL = "www.devmedia.com.br"
+            });
+            resultado.Add(new
+            {
+                Nome = "Mr. Bool",
+                URL = "www.mrbool.com.br"
+            });
+
+            return Json(resultado);
         }
 
         // GET api/values/5
