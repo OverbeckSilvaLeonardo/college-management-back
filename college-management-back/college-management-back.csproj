@@ -172,8 +172,11 @@
     <Compile Include="Controllers\Api\ValuesController.cs" />
     <Compile Include="DAL\UniversityContext.cs" />
     <Compile Include="DAL\UniversityInitializer.cs" />
-    <Compile Include="Domain\Api\GetCoursesApiResultFormatter.cs" />
-    <Compile Include="Domain\Api\SubjectApiDTO.cs" />
+    <Compile Include="Domain\Api\GetCourses\GetCoursesApiResultFormatter.cs" />
+    <Compile Include="Domain\Api\GetCourses\Object\FormattedCourseItem.cs" />
+    <Compile Include="Domain\Api\GetCourses\Object\FormattedCoursesList.cs" />
+    <Compile Include="Domain\Api\GetCourses\Object\FormattedStudentItem.cs" />
+    <Compile Include="Domain\Api\GetCourses\Object\FormattedStudentsList.cs" />
     <Compile Include="Domain\Person\Birthday.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

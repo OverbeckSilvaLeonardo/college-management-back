@@ -10,7 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Http.Results;
 using college_management_back.DAL;
-using college_management_back.Domain.Api;
+using college_management_back.Domain.Api.GetCourses.Object;
 using college_management_back.Models;
 using Newtonsoft.Json;
 
@@ -21,7 +21,7 @@ namespace college_management_back.Controllers.Api
         private UniversityContext db = new UniversityContext();
 
         // GET: api/Courses
-        public JsonResult<List<ExpandoObject>> GetCourses()
+        public JsonResult<FormattedCoursesList> GetCourses()
         {
             List<Course> courses = db.Courses.ToList();
 
