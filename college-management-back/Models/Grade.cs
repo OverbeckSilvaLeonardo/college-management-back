@@ -4,7 +4,6 @@ namespace college_management_back.Models
 {
     public class Grade
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int GradeID { get; set; }
         public int StudentID { get; set; }
         public int SubjectID { get; set; }
