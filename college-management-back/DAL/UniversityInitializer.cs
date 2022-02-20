@@ -8,6 +8,10 @@ namespace college_management_back.DAL
 {
     public class UniversityInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<UniversityContext>
     {
+        public UniversityInitializer()
+        {
+        }
+
         protected override void Seed(UniversityContext context)
         {
             var courses = new List<Course>

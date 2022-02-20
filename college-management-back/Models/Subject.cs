@@ -9,6 +9,10 @@ namespace college_management_back.Models
 {
     public class Subject
     {
+        public Subject()
+        {
+        }
+
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int SubjectID { get; set; }
         public int CourseID { get; set; }

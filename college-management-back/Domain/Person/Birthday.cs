@@ -7,6 +7,10 @@ namespace college_management_back.Domain.Person
 {
     public class Birthday
     {
+        public Birthday()
+        {
+        }
+
         public Birthday(DateTime date)
         {
             Date = date;

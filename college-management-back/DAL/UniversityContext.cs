@@ -9,7 +9,7 @@ namespace college_management_back.DAL
 {
     public class UniversityContext : DbContext
     {
-        protected UniversityContext() : base("UniversityContext")
+        public UniversityContext() : base("UniversityContext")
         {
         }
 

@@ -7,8 +7,12 @@ using System.Web;
 
 namespace college_management_back.Models
 {
-    public class Person : IPerson
+    public abstract class Person : IPerson
     {
+        protected Person()
+        {
+        }
+
         public string Name { get; set; }
         public Birthday Birthday { get; set; }
     }

@@ -10,6 +10,10 @@ namespace college_management_back.Models
 {
     public class Student : Person, IPerson
     {
+        public Student()
+        {
+        }
+
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int StudentID { get; set; }
         public string RegistrationNumber { get; set; }
