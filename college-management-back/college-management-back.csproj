@@ -163,6 +163,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Api\CoursesController.cs" />
+    <Compile Include="Controllers\Api\StudentsController.cs" />
     <Compile Include="Controllers\Api\SubjectsController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\GradesController.cs" />
@@ -178,6 +179,10 @@
     <Compile Include="Domain\Api\Common\StudentsListItem.cs" />
     <Compile Include="Domain\Api\Common\StudentsList.cs" />
     <Compile Include="Domain\Api\GetCourses\TeacherCount.cs" />
+    <Compile Include="Domain\Api\GetStudents\GetStudentsList.cs" />
+    <Compile Include="Domain\Api\GetStudents\GetStudentsListItem.cs" />
+    <Compile Include="Domain\Api\GetStudents\GradesList.cs" />
+    <Compile Include="Domain\Api\GetStudents\GradesListItem.cs" />
     <Compile Include="Domain\Api\GetSubjects\SubjectsListItem.cs" />
     <Compile Include="Domain\Api\GetSubjects\SubjectsList.cs" />
     <Compile Include="Domain\Api\GetSubjects\TeachersListItem.cs" />

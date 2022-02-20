@@ -18,7 +18,7 @@ namespace college_management_back.Domain.Api.GetCourses
 
         public static CoursesList FromCoursesList(List<Course> courses)
         {
-            CoursesList result = new CoursesList();
+            var result = new CoursesList();
 
             courses.ForEach(course =>
             {
