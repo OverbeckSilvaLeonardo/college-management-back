@@ -18,7 +18,7 @@ namespace college_management_back.Domain.Api.GetSubjects
                 TeacherID = teacher.TeacherID,
                 Salary = teacher.Salary,
                 Name = teacher.Name,
-                Birthday = teacher.Birthday.ToString("dddd, dd MMMM yyyy"),
+                Birthday = teacher.Birthday.ToString(),
             };
         }
     }
