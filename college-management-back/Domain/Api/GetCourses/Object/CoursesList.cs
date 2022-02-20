@@ -7,21 +7,21 @@ namespace college_management_back.Domain.Api.GetCourses.Object
 {
     public class CoursesList
     {
-        public Dictionary<int, CourseItem> CoursesList { get; set; }
+        public Dictionary<int, CourseItem> Courses { get; set; }
 
         public CoursesList()
         {
-            CoursesList = new Dictionary<int, CourseItem>();
+            Courses = new Dictionary<int, CourseItem>();
         }
 
         public void Add(int identifier, CourseItem course)
         {
-            if (CoursesList.ContainsKey(identifier))
+            if (Courses.ContainsKey(identifier))
             {
                 return;
             }
 
-            CoursesList.Add(identifier, course);
+            Courses.Add(identifier, course);
         }
     }
 }
