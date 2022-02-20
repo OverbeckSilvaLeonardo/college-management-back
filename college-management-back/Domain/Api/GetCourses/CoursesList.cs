@@ -1,4 +1,5 @@
-﻿using college_management_back.Models;
+﻿using college_management_back.Domain.Api.Common;
+using college_management_back.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ namespace college_management_back.Domain.Api.GetCourses
 {
     public class CoursesList
     {
-        public Dictionary<int, CourseItem> Courses { get; set; }
+        public Dictionary<int, CoursesListItem> Courses { get; set; }
 
         public CoursesList()
         {
-            Courses = new Dictionary<int, CourseItem>();
+            Courses = new Dictionary<int, CoursesListItem>();
         }
 
         public static CoursesList FromCoursesList(List<Course> courses)
@@ -21,9 +22,9 @@ namespace college_management_back.Domain.Api.GetCourses
 
             courses.ForEach(course =>
             {
-                var studentsList = StudentsList.FromSubjectsList(course.Subjects.ToList());
+                var studentsList = StudentsList.FromDatabaseSubjectsList(course.Subjects.ToList());
                 var teacherCount = TeacherCount.FromSubjectsList(course.Subjects.ToList());
-                var item = new CourseItem { CourseID = course.CourseID, Description = course.Description, TeacherCount = teacherCount.Count, StudentCount = studentsList.Count(), StudentsList = studentsList };
+                var item = new CoursesListItem { CourseID = course.CourseID, Description = course.Description, TeacherCount = teacherCount.Count, StudentCount = studentsList.Count(), StudentsList = studentsList };
 
                 result.Add(course.CourseID, item);
             });
@@ -31,7 +32,7 @@ namespace college_management_back.Domain.Api.GetCourses
             return result;
         }
 
-        public void Add(int identifier, CourseItem course)
+        public void Add(int identifier, CoursesListItem course)
         {
             if (Courses.ContainsKey(identifier))
             {

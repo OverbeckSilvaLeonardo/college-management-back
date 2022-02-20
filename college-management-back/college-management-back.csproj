@@ -163,6 +163,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Api\CoursesController.cs" />
+    <Compile Include="Controllers\Api\SubjectsController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\GradesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -172,11 +173,14 @@
     <Compile Include="Controllers\Api\ValuesController.cs" />
     <Compile Include="DAL\UniversityContext.cs" />
     <Compile Include="DAL\UniversityInitializer.cs" />
-    <Compile Include="Domain\Api\GetCourses\CourseItem.cs" />
+    <Compile Include="Domain\Api\GetCourses\CoursesListItem.cs" />
     <Compile Include="Domain\Api\GetCourses\CoursesList.cs" />
-    <Compile Include="Domain\Api\GetCourses\StudentItem.cs" />
-    <Compile Include="Domain\Api\GetCourses\StudentsList.cs" />
+    <Compile Include="Domain\Api\Common\StudentsListItem.cs" />
+    <Compile Include="Domain\Api\Common\StudentsList.cs" />
     <Compile Include="Domain\Api\GetCourses\TeacherCount.cs" />
+    <Compile Include="Domain\Api\GetSubjects\SubjectsListItem.cs" />
+    <Compile Include="Domain\Api\GetSubjects\SubjectsList.cs" />
+    <Compile Include="Domain\Api\GetSubjects\TeachersListItem.cs" />
     <Compile Include="Domain\Person\Birthday.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

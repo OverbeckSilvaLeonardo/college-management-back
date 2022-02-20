@@ -17,5 +17,10 @@ namespace college_management_back.Domain.Person
         }
 
         public DateTime Date { get; set; }
+
+        public string ToString(string format = "dddd, dd MMMM yyyy")
+        {
+            return Date.ToString(format);
+        }
     }
 }
