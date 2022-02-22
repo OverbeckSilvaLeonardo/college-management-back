@@ -9,11 +9,11 @@ namespace college_management_back.Domain.Api.GetCourses
 {
     public class CoursesList
     {
-        public Dictionary<int, CoursesListItem> Courses { get; set; }
+        public new List<CoursesListItem> Courses { get; set; }
 
         public CoursesList()
         {
-            Courses = new Dictionary<int, CoursesListItem>();
+            Courses = new List<CoursesListItem>();
         }
 
         public static CoursesList FromCoursesList(List<Course> courses)
@@ -26,20 +26,23 @@ namespace college_management_back.Domain.Api.GetCourses
                 var teacherCount = TeacherCount.FromSubjectsList(course.Subjects.ToList());
                 var item = new CoursesListItem { CourseID = course.CourseID, Description = course.Description, TeacherCount = teacherCount.Count, StudentCount = studentsList.Count(), StudentsList = studentsList };
 
-                result.Add(course.CourseID, item);
+                result.Courses.Add(item);
             });
 
             return result;
         }
 
-        public void Add(int identifier, CoursesListItem course)
+        private void Add(CoursesListItem course)
         {
-            if (Courses.ContainsKey(identifier))
+            foreach (var item in Courses)
             {
-                return;
+                if (item.CourseID == course.CourseID)
+                {
+                    return;
+                }
             }
 
-            Courses.Add(identifier, course);
+            Courses.Add(course);
         }
     }
 }

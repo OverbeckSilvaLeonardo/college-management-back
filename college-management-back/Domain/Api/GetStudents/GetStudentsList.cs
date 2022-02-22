@@ -8,11 +8,11 @@ namespace college_management_back.Domain.Api.GetStudents
 {
     public class GetStudentsList
     {
-        public Dictionary<int, GetStudentsListItem> Students { get; set; }
+        public List<GetStudentsListItem> Students { get; set; }
 
         public GetStudentsList()
         {
-            Students = new Dictionary<int, GetStudentsListItem>();
+            Students = new List<GetStudentsListItem>();
         }
 
         // List the students and their respective grades of the subject
@@ -24,20 +24,23 @@ namespace college_management_back.Domain.Api.GetStudents
                 var gradesList = GradesList.FromDatabaseGradesList(student.Grades.ToList());
                 var item = new GetStudentsListItem { StudentID = student.StudentID, StudentName = student.Name, Grades = gradesList };
 
-                result.Add(student.StudentID, item);
+                result.Add(item);
             });
 
             return result;
         }
 
-        public void Add(int identifier, GetStudentsListItem student)
+        private void Add(GetStudentsListItem student)
         {
-            if (Students.ContainsKey(identifier))
+            foreach (var item in Students)
             {
-                return;
+                if (item.StudentID == student.StudentID)
+                {
+                    return;
+                }
             }
 
-            Students.Add(identifier, student);
+            Students.Add(student);
         }
     }
 }

@@ -8,11 +8,11 @@ namespace college_management_back.Domain.Api.Common
 {
     public class StudentsList
     {
-        public Dictionary<int, StudentsListItem> Students { get; set; }
+        public List<StudentsListItem> Students { get; set; }
 
         public StudentsList()
         {
-            Students = new Dictionary<int, StudentsListItem>();
+            Students = new List<StudentsListItem>();
         }
 
         public static StudentsList FromDatabaseSubjectsList(List<Subject> subjects)
@@ -23,7 +23,7 @@ namespace college_management_back.Domain.Api.Common
             {
                 foreach (var student in sub.Students.ToList())
                 {
-                    studentsList.Add(student.StudentID, StudentsListItem.FromDatabaseStudent(student));
+                    studentsList.Add(StudentsListItem.FromDatabaseStudent(student));
                 }
             });
 
@@ -36,20 +36,23 @@ namespace college_management_back.Domain.Api.Common
 
             foreach (var student in students)
             {
-                studentsList.Add(student.StudentID, StudentsListItem.FromDatabaseStudent(student));
+                studentsList.Add( StudentsListItem.FromDatabaseStudent(student));
             }
 
             return studentsList;
         }
 
-        public void Add(int identifier, StudentsListItem student)
+        private void Add(StudentsListItem student)
         {
-            if (Students.ContainsKey(identifier))
+            foreach (var item in Students)
             {
-                return;
+                if (item.StudentID == student.StudentID)
+                {
+                    return;
+                }
             }
 
-            Students.Add(identifier, student);
+            Students.Add(student);
         }
 
         public int Count()

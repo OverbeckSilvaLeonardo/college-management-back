@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using System.Web.Http.Results;
 using college_management_back.DAL;
@@ -19,7 +20,7 @@ namespace college_management_back.Controllers.Api
     {
         private UniversityContext db = new UniversityContext();
 
-        // GET: api/Subjects
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public JsonResult<SubjectsList> GetSubjects()
         {
             List<Subject> subjects = db.Subjects.ToList();
