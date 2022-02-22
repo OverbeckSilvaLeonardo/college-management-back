@@ -6,11 +6,11 @@ namespace college_management_back.Domain.Api.GetStudents
 {
     public class GradesList
     {
-        public Dictionary<int, GradesListItem> Grades { get; set; }
+        public List<GradesListItem> Grades { get; set; }
 
         public GradesList()
         {
-            Grades = new Dictionary<int, GradesListItem>();
+            Grades = new List<GradesListItem>();
         }
 
         public static GradesList FromDatabaseGradesList(List<Grade> grades)
@@ -19,22 +19,25 @@ namespace college_management_back.Domain.Api.GetStudents
 
             foreach (var grade in grades)
             {
-                var item = new GradesListItem { Grade = grade.Value, Subject = grade.Subject.Description, SubjectID = grade.SubjectID };
-                result.Add(grade.GradeID, item);
+                var item = new GradesListItem { GradeID = grade.GradeID, Grade = grade.Value, Subject = grade.Subject.Description, SubjectID = grade.SubjectID };
+                result.Add(item);
             }
 
             return result;
 
         }
 
-        public void Add(int identifier, GradesListItem grade)
+        private void Add(GradesListItem grade)
         {
-            if (Grades.ContainsKey(identifier))
+            foreach (var item in Grades)
             {
-                return;
+                if (item.GradeID == grade.GradeID)
+                {
+                    return;
+                }
             }
 
-            Grades.Add(identifier, grade);
+            Grades.Add(grade);
         }
     }
 }
